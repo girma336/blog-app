@@ -109,8 +109,9 @@ In order to run this project you need:
 - Node js installed on your computer
 - Npm Node package manager
 - Terminal
-- Rails installed
-- Ruby installed
+- Rails installed Rails 7.0.4.2
+- Ruby installed  ruby 3.2.1 (2023-02-08 revision 31819e82c8) [x86_64-linux]
+
 
 ### Setup
 
@@ -155,7 +156,7 @@ To run the project, execute the following command:
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page]().
+Feel free to check the [issues page](https://github.com/girma336/blog-app/issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
