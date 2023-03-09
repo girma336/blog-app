@@ -43,7 +43,7 @@ RSpec.describe User, type: :model do
       expect(user.errors[:posts_counter]).to include('must be greater than or equal to 0')
     end
 
-    it 'is invalid with a negative posts counter' do
+    it 'is invalid with a string posts counter' do
       user = User.new(name: 'Tom', posts_counter: 'string')
       expect(user).to_not be_valid
       expect(user.errors[:posts_counter]).to include('is not a number')

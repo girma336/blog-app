@@ -11,36 +11,36 @@ RSpec.describe Post, type: :model do
     expect(subject.title).to eq('Hello')
   end
 
-  it 'text should be given strirng' do
+  it 'text should be equal to This is my first post' do
     expect(subject.text).to eq('This is my first post')
   end
 
-  it 'author shold be ' do
+  it 'author shold be equla to first_user' do
     expect(subject.author).to eq(first_user)
   end
 
   context 'Check all Validation' do
-    it 'auther shoul be presence' do
+    it 'auther should be presence' do
       author = Post.new(title: 'Hello')
       expect(author).to_not be_valid
       expect(author.errors[:author]).to include('must exist')
     end
 
-    it 'title should ne presence' do
+    it 'text of post shoud be equ to My name ...' do
       user2 = User.new(name: 'girma', posts_counter: 1)
       user2.save
-      author = Post.new(author: user2, title: 'Hello')
-      expect(author).to be_valid
+      author = Post.new(author: user2, title: 'Hello', text: 'My name is girma')
+      expect(author.text).to eq('My name is girma')
     end
 
-    it 'title should ne presence' do
+    it 'title should be  equla to Hello' do
       user2 = User.new(name: 'girma', posts_counter: 1)
       user2.save
       author = Post.new(author: user2, title: 'Hello', likes_counter: 0)
-      expect(author).to be_valid
+      expect(author.title).to eq('Hello')
     end
 
-    it 'title should ne presence' do
+    it 'like counter should be greater than or eql to 0' do
       user2 = User.new(name: 'girma', posts_counter: 1)
       user2.save
       author = Post.new(author: user2, title: 'Hello', likes_counter: -80)
@@ -50,7 +50,7 @@ RSpec.describe Post, type: :model do
   end
 
   context 'validation' do
-    it 'title should ne presence' do
+    it 'title should be presence' do
       user2 = User.new(name: 'girma', posts_counter: 1)
       user2.save
       author = Post.new(author: user2, likes_counter: 80)
@@ -58,7 +58,7 @@ RSpec.describe Post, type: :model do
       expect(author.errors[:title]).to include("can't be blank")
     end
 
-    it 'title should ne presence' do
+    it 'like counter should be integer' do
       user2 = User.new(name: 'girma', posts_counter: 1)
       user2.save
       author = Post.new(author: user2, title: 'Hello', likes_counter: 'girma', comments_counter: 10)
@@ -66,7 +66,7 @@ RSpec.describe Post, type: :model do
       expect(author.errors[:likes_counter]).to include('is not a number')
     end
 
-    it 'title should ne presence' do
+    it 'commment count should be greater than or eql to 0' do
       user2 = User.new(name: 'girma', posts_counter: 1)
       user2.save
       author = Post.new(author: user2, title: 'Hello', likes_counter: 0, comments_counter: -11)
