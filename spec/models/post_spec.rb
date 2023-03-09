@@ -47,7 +47,9 @@ RSpec.describe Post, type: :model do
       expect(author).to_not be_valid
       expect(author.errors[:likes_counter]).to include('must be greater than or equal to 0')
     end
+  end
 
+  context 'validation' do
     it 'title should ne presence' do
       user2 = User.new(name: 'girma', posts_counter: 1)
       user2.save
