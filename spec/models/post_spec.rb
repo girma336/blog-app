@@ -7,7 +7,7 @@ RSpec.describe Post, type: :model do
     expect(Post < ApplicationRecord).to eq(true)
   end
   before { subject.save }
-  it 'title should be equle to Hello' do
+  it 'title should be equal to Hello' do
     expect(subject.title).to eq('Hello')
   end
 
@@ -20,27 +20,27 @@ RSpec.describe Post, type: :model do
   end
 
   context 'Check all Validation' do
-    it 'auther should be presence' do
+    it 'auther should be present' do
       author = Post.new(title: 'Hello')
       expect(author).to_not be_valid
       expect(author.errors[:author]).to include('must exist')
     end
 
-    it 'text of post shoud be equ to My name ...' do
+    it 'text of post shoud be equal to My name is girma' do
       user2 = User.new(name: 'girma', posts_counter: 1)
       user2.save
       author = Post.new(author: user2, title: 'Hello', text: 'My name is girma')
       expect(author.text).to eq('My name is girma')
     end
 
-    it 'title should be  equla to Hello' do
+    it 'title should be  equal to Hello' do
       user2 = User.new(name: 'girma', posts_counter: 1)
       user2.save
       author = Post.new(author: user2, title: 'Hello', likes_counter: 0)
       expect(author.title).to eq('Hello')
     end
 
-    it 'like counter should be greater than or eql to 0' do
+    it 'like counter should be greater than or equal to 0' do
       user2 = User.new(name: 'girma', posts_counter: 1)
       user2.save
       author = Post.new(author: user2, title: 'Hello', likes_counter: -80)
@@ -50,7 +50,7 @@ RSpec.describe Post, type: :model do
   end
 
   context 'validation' do
-    it 'title should be presence' do
+    it 'title should be present' do
       user2 = User.new(name: 'girma', posts_counter: 1)
       user2.save
       author = Post.new(author: user2, likes_counter: 80)
@@ -66,7 +66,7 @@ RSpec.describe Post, type: :model do
       expect(author.errors[:likes_counter]).to include('is not a number')
     end
 
-    it 'commment count should be greater than or eql to 0' do
+    it 'commment count should be greater than or equal to 0' do
       user2 = User.new(name: 'girma', posts_counter: 1)
       user2.save
       author = Post.new(author: user2, title: 'Hello', likes_counter: 0, comments_counter: -11)
