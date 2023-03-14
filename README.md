@@ -124,6 +124,13 @@ Install this project with:
 
 `npm gemfile`
 
+In order to run rails project you should 
+`advise bundle install` 
+for installing dependencies, and then 
+`rails db:create` and 
+`rails db:migrate` 
+to setup database and then only rails server will work
+
 ### Usage
 
 To run the project, execute the following command:

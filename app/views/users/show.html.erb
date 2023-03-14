@@ -1,5 +1,7 @@
 <h1>Show User by ID</h1>
-
-<p><%= @user.name %></p>
-
-<p>Number of posts by <%= @user.name %>: <%= @user.posts_counter %></p>
+<% if @user.nil? %>
+ <p>Not user list found</p>
+<%else %>
+ <h3><%= @user.name %></h3>
+ <p><%= @user.bio %></p>
+<% end %>
