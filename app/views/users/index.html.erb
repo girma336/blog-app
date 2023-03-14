@@ -1,6 +1,8 @@
 <h1>User list</h1>
 <% @users.each do |user| %>
+  <div style="border: 2px solid black; margin: 5px">
     <img src="<%= user.photo %>", style='height:100px;width:100;margin-bottom:20px;' >
     <h3><%= user.name %></h3>
     <p>Number of posts by <%= user.name %>: <%= user.posts_counter %></p>
+  </div>
 <% end %>

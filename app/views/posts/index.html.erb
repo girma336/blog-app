@@ -1,4 +1,8 @@
 <h1 style='text-align:center'>Post list</h1>
-<%= @posts.each do |post| %>
-  <p><%= post.text %><p>
+<%= @posts.each_with_index do |post, index| %>
+ <div style="border: 2px solid black; margin: 5px">
+ <h3>post <%= index + 1 %>
+    <p><%= post.title %></p>
+    <p><%= post.text %></p>
+ </div>
 <% end %>
