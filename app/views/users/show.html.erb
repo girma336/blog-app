@@ -1,7 +1,19 @@
-<h1>Show User by ID</h1>
-<% if @user.nil? %>
+<% if @user_search.nil? %>
  <p>Not user list found</p>
-<%else %>
- <h3><%= @user.name %></h3>
- <p><%= @user.bio %></p>
+<%else%>
+  <div>
+    <%= render partial: "user", locals: { user: @user_search } %>
+
+  </div>
 <% end %>
+<%= render "bio", class:"container bordred" %>
+</div>
+<% if @post.empty? %>
+ <p style="text-align: center">Not post in this user</p>
+<%else%>
+<%= render partial: "posts/post", locals: { post: @post } %>
+<%end%>
+
+<div class="container" style="margin-top: 5px">
+    <%= link_to "See all posts", user_posts_path(user_id: @user_search.id), class:"btn btn-secondary" %>
+</div>

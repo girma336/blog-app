@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find_by(id: params[:id])
+    @user_search = User.find_by(id: params[:id])
+    @post = Post.where(author_id: params[:id])
   end
 end
