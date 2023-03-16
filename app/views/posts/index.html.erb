@@ -1,8 +1,26 @@
-<h1 style='text-align:center'>Post list</h1>
-<%= @posts.each_with_index do |post, index| %>
- <div style="border: 2px solid black; margin: 5px">
- <h3>post <%= index + 1 %>
-    <p><%= post.title %></p>
-    <p><%= post.text %></p>
- </div>
+<h3 style="margin: 10px;text-align:center;border-bottom: 2px solid black">List of Posts</h3>
+<div style="margin-top: 10px">
+ <% if @user_search.nil? %>
+<h4>User not found</h4>
+<% else %>
+<div>
+<%= render partial: 'users/user', locals: { user: @user_search } %>
+<div>
 <% end %>
+</div>
+<div>
+<% @posts.each_with_index do |post, index| %>
+  <div class="container border rounded" style="margin-top: 5px">
+    <h4>Post #<%= index + 1 %></h4>
+    <p><%= post.text %></p>
+    <p><%= link_to "Show More", "#{user_posts_path}/#{post.id}", class:"btn btn-primary" %><p>
+  </div>
+  <div class="container border rounded" style="margin-top: 5px">
+    <% if post.comments_counter > 0 %>
+          <% post.five_most_recent_comments.each do |comment| %>
+            <%= render 'comments', comment: comment %>
+          <% end %>
+    <% end %>
+  </div>
+<%end%>
+</div>

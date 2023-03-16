@@ -1,7 +1,13 @@
-<h1 style='text-align:center'>Show Post by ID<h1>
-<% if @post.nil? %>
-    <h1>no post found</h1>
-<%else %>
-<h4><%= @post.title %></h4>
-<p><%= @post.text %></p>
+<h3 style="margin: 10px;text-align:center;border-bottom: 2px solid black">Detale's about Post</h3>
+<div class="container border rounded" style="margin-top: 5px">
+    <h4>Post #<%= @post.id %> by <%= @user_search.name %></h4>
+    <p><%= @post.text %> </p>
+    <p style="color: red">Comments: <%= @post.comments_counter %>, Likes: <%= @post.likes_counter %></p>
+  </div>
+<div class="container border rounded" style="margin-top: 5px">
+    <% if @post.comments_counter > 0 %>
+          <% @post.comments.each do |comment| %>
+            <%= render 'comments', comment: comment%>
+            <% end %>
 <% end %>
+  </div>
