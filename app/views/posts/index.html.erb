@@ -1,3 +1,4 @@
+<h3 style="margin: 10px;text-align:center;border-bottom: 2px solid black">List of Posts</h3>
 <div style="margin-top: 10px">
  <% if @user_search.nil? %>
 <h4>User not found</h4>
@@ -8,10 +9,11 @@
 <% end %>
 </div>
 <div>
-<%= @posts.each_with_index do |post, index| %>
+<% @posts.each_with_index do |post, index| %>
   <div class="container border rounded" style="margin-top: 5px">
     <h4>Post #<%= index + 1 %></h4>
     <p><%= post.text %></p>
+    <p><%= link_to "Show More", "#{user_posts_path}/#{post.id}", class:"btn btn-primary" %><p>
   </div>
   <div class="container border rounded" style="margin-top: 5px">
     <% if post.comments_counter > 0 %>

@@ -1,11 +1,9 @@
 <div>
-<%= post.each do |post| %>
-  <div class="container border rounded" style="margin-top: 5px">
-    <h2> <%= post.title %> </h2> 
-    <p><%= post.text %></p>
-    <div>
-    <p>Comment: <%= post.comments_counter %>: Like :<%= post.likes_counter %></p>
-    </div>
+<div class="container border rounded" style="margin-top: 5px">
+  <h2> <%= post.title %> </h2> 
+  <p><%= post.text %></p>
+  <div>
+  <p>Comment: <%= post.comments_counter %>: Like :<%= post.likes_counter %></p>
   </div>
-<% end %>
+</div>
 </div>
