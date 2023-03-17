@@ -1,3 +1,4 @@
+<%= render 'layouts/flash' %>
 <h3 style="margin: 10px;text-align:center;border-bottom: 2px solid black">List of Posts</h3>
 <div style="margin-top: 10px">
  <% if @user_search.nil? %>
@@ -23,4 +24,7 @@
     <% end %>
   </div>
 <%end%>
+</div>
+<div style="margin: 20px">
+<%= link_to "Add post", new_user_post_path, class:'btn btn-secondary' %>
 </div>
