@@ -1,10 +1,15 @@
-<h3 style="margin: 10px;text-align:center;border-bottom: 2px solid black">All User List</h3>
+<div class="card">
+  <div class="card-header">
+    <h4>List of User's</h4>
+  </div>
+</div>
+<br>
 <div class="container" style="marign-top: 20px">
   <% @users.each do |user| %>
   <div class="card mb-3">
   <div class="row g-0">
-    <div class="col-md-4">
-      <img src=<%= user.photo %> class="img-fluid rounded-start" alt=<%= user.name %> >
+    <div class="col-md-2">
+      <img src=<%= user.photo %> class="img-fluid rounded-start" alt=<%= user.name %> />
     </div>
     <div class="col-md-8">
       <div class="card-body">

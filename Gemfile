@@ -48,8 +48,11 @@ gem 'bootsnap', require: false
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 group :development, :test do
+  gem 'capybara'
   gem 'rails-controller-testing'
   gem 'rspec-rails', '~> 6.0.0'
+  gem 'selenium-webdriver'
+  gem 'webdrivers'
 end
 
 # group :development, :test do
@@ -67,10 +70,4 @@ group :development do
   # gem "spring"
 end
 
-group :test do
-  # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
-  gem 'capybara'
-  gem 'selenium-webdriver'
-  gem 'webdrivers'
-end
 gem 'bootstrap_form', '~> 5.1'

@@ -1,5 +1,9 @@
-<section>
-<h3 style="margin: 10px;text-align:center;border-bottom: 2px solid black">Detaile's of user</h3>
+
+<div class="card">
+  <div class="card-header">
+    <h4>Details Asbout User</h4>
+  </div>
+</div>
 
 <%user_search = @user_search%>
 <% if user_search.nil? %>
@@ -8,7 +12,7 @@
 <div>
    <div class="card mb-3" style="margin-top: 20px">
     <div class="row g-0">
-      <div class="col-md-4">
+      <div class="col-md-2">
        <img src="<%= user_search.photo %>" class="img-fluid rounded-start" alt=<%= user_search.name %> >
       </div>
       <div class="col-md-8">
@@ -20,12 +24,23 @@
     </div>
 </div>
 <% end %>
-<div class="container border rounded" style="margin-left: -10px">
-<h2>Bio</h3>
-<div><%= @user_search.bio %></div>
-</div>
 
+<%user_search = @user_search%>
+<% if user_search.nil? %>
+ <p>Not user list found</p>
+<%else%>
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">Bio</h5>
+    <p class="card-text"><%= user_search.bio %></p>
+  </div>
+</div>
 <div>
+<%end%>
+<%user_search = @user_search%>
+<% if user_search.nil? %>
+ <p>Not user list found</p>
+<%else%>
 <% user_search.three_most_recent_posts.each do |post| %>
   <div>
     <div class="container border rounded" style="margin-top: 5px">
@@ -43,4 +58,5 @@
 <div class="container" style="margin-top: 5px">
     <%= link_to "See all posts", user_posts_path(user_id: @user_search.id), class:"btn btn-secondary" %>
 </div>
-</section>
+<%end%>
+<br>

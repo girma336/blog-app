@@ -1,5 +1,9 @@
 <%= render 'layouts/flash' %>
-<h3 style="margin: 10px;text-align:center;border-bottom: 2px solid black">List of Posts</h3>
+<div class="card">
+  <div class="card-header">
+    <h4>List of Post</h4>
+  </div>
+</div>
 <div style="margin-top: 10px">
  <% if @user_search.nil? %>
 <h4>User not found</h4>
@@ -18,7 +22,7 @@
   </div>
   <div class="container border rounded" style="margin-top: 5px">
     <% if post.comments_counter > 0 %>
-          <% post.five_most_recent_comments.each do |comment| %>
+          <% post.five_most_recent_comments.includes(:author).each do |comment| %>
             <%= render 'comments', comment: comment %>
           <% end %>
     <% end %>
