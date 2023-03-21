@@ -6,20 +6,9 @@
 <br>
 <div class="container" style="marign-top: 20px">
   <% @users.each do |user| %>
-  <div class="card mb-3">
-  <div class="row g-0">
-    <div class="col-md-2">
-      <img src=<%= user.photo %> class="img-fluid rounded-start" alt=<%= user.name %> />
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title"><%= user.name %></h5>
-        <p class="card-text float-left"><small class="text-muted float-left">Number of Post: <%= user.posts_counter %></small></p>
-        <p><%= link_to "Show More", "#{users_path}/#{user.id}", class:"btn btn-primary" %><p>
-      </div>
-    </div>
-  </div>
-</div>
+  <a href=<%= "/users/#{user.id}" %> class="text-decoration-none">
+   <%= render "user", user: user %>
+  </a>
 <% end %>
 
 </div>

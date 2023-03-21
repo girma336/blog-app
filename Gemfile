@@ -48,11 +48,12 @@ gem 'bootsnap', require: false
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 group :development, :test do
-  gem 'capybara'
+  gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'rails-controller-testing'
   gem 'rspec-rails', '~> 6.0.0'
-  gem 'selenium-webdriver'
-  gem 'webdrivers'
+  gem 'selenium-webdriver', '= 4.8.0'
+  gem 'webdrivers', '~> 5.1'
+  gem 'capybara', '~> 3.38'
 end
 
 # group :development, :test do
@@ -68,6 +69,10 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+end
+
+group :test do
+  # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
 end
 
 gem 'bootstrap_form', '~> 5.1'

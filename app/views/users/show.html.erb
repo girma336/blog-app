@@ -9,48 +9,23 @@
 <% if user_search.nil? %>
  <p>Not user list found</p>
 <%else%>
-<div>
-   <div class="card mb-3" style="margin-top: 20px">
-    <div class="row g-0">
-      <div class="col-md-2">
-       <img src="<%= user_search.photo %>" class="img-fluid rounded-start" alt=<%= user_search.name %> >
-      </div>
-      <div class="col-md-8">
-        <div class="card-body">
-          <h5 class="card-title"><%= user_search.name %></h5>
-          <p class="card-text float-left"><small class="text-muted float-left">Number of Post: <%= user_search.posts_counter %></small></p>
-        </div>
-      </div>
-    </div>
-</div>
-<% end %>
+<%= render "user", user: @user_search %>
+<%end%>
+
+
 
 <%user_search = @user_search%>
 <% if user_search.nil? %>
  <p>Not user list found</p>
 <%else%>
-<div class="card">
-  <div class="card-body">
-    <h5 class="card-title">Bio</h5>
-    <p class="card-text"><%= user_search.bio %></p>
-  </div>
-</div>
-<div>
+<%= render "bio", user: @user_search %>
 <%end%>
-<%user_search = @user_search%>
+
 <% if user_search.nil? %>
  <p>Not user list found</p>
 <%else%>
-<% user_search.three_most_recent_posts.each do |post| %>
-  <div>
-    <div class="container border rounded" style="margin-top: 5px">
-      <h2> <%= post.title %> </h2> 
-      <p><%= post.text %></p>
-      <div>
-        <p>Comment: <%= post.comments_counter %>: Like :<%= post.likes_counter %></p>
-      </div>
-    </div>
-  </div>
+<% @user_search.three_most_recent_posts.each do |post| %>
+  <%= render "posts/post", post: post %>
 <%end%>
 
 

@@ -87,6 +87,7 @@ GEM
     concurrent-ruby (1.2.2)
     crass (1.0.6)
     date (3.3.3)
+    debug (1.7.1)
     diff-lcs (1.5.0)
     erubi (1.12.0)
     globalid (1.1.0)
@@ -184,7 +185,7 @@ GEM
       rspec-support (~> 3.11)
     rspec-support (3.12.0)
     rubyzip (2.3.2)
-    selenium-webdriver (4.8.1)
+    selenium-webdriver (4.8.0)
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
@@ -228,7 +229,8 @@ PLATFORMS
 DEPENDENCIES
   bootsnap
   bootstrap_form (~> 5.1)
-  capybara
+  capybara (~> 3.38)
+  debug
   importmap-rails
   jbuilder
   pg (~> 1.1)
@@ -236,13 +238,13 @@ DEPENDENCIES
   rails (~> 7.0.4, >= 7.0.4.2)
   rails-controller-testing
   rspec-rails (~> 6.0.0)
-  selenium-webdriver
+  selenium-webdriver (= 4.8.0)
   sprockets-rails
   stimulus-rails
   turbo-rails
   tzinfo-data
   web-console
-  webdrivers
+  webdrivers (~> 5.1)
 
 RUBY VERSION
    ruby 3.2.1p31
