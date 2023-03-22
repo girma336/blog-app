@@ -1,0 +1,26 @@
+<h2>Sign up</h2>
+<%= bootstrap_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |form| %>
+
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <%= form.text_field :name %>
+
+  <%= form.text_field :photo, required: true  %>
+
+  <%= form.text_area :bio, required: true  %>
+
+  <%= form.email_field :email, autofocus: true, autocomplete: "email", required: true %>
+
+  <% if @minimum_password_length %>
+    <%= form.password_field :password, help: "Must be at least #{@minimum_password_length} characters long minimum", required: true %>
+  <% end %>
+
+
+  <%= form.password_field :password_confirmation, autocomplete: "new-password", required: true %><br />
+
+<%= form.button "Sign up" %>
+<% end %>
+<br />
+<%= render "devise/shared/links" %>
+<br />
+<br>

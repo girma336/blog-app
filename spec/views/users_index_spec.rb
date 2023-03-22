@@ -3,8 +3,8 @@ require 'rails_helper'
 RSpec.describe 'User index', type: :feature do
   let(:user1) { User.last }
   before do
-      visit users_path
-  end 
+    visit users_path
+  end
   scenario 'Displays name, profile picture, and post count for all users' do
     sleep(1)
     expect(page).to have_content("List of User's")

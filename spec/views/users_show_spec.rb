@@ -1,10 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe 'Users Show Page', type: :feature do
-    let(:user_ids) { User.pluck(:id) }
-    # let(:user) { User. }
-    # let(:post) { Post.all }
-    describe 'Show Page' do
+  let(:user_ids) { User.pluck(:id) }
+  # let(:user) { User. }
+  # let(:post) { Post.all }
+  describe 'Show Page' do
     it 'I can see the user\'s profile picture.' do # 1
       visit user_path(user_ids.last)
       expect(page).to have_selector('img')

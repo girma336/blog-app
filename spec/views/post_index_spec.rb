@@ -26,7 +26,7 @@ RSpec.describe 'Posts Index Page', type: :feature do
       visit user_posts_path(user_ids.last)
       expect(page).to have_content('1')
     end
-    
+
     it 'I can see a section for pagination if there are more posts than fit on the view.' do # 9
       expect(page).to have_content('Pagination')
     end
