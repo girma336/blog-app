@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :authenticate_user!
+  load_and_authorize_resource only: [:dashBoard], find_by: :slug
   def new
     @comment = Comment.new
     respond_to do |format|

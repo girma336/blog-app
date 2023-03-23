@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!
+  load_and_authorize_resource only: [:dashBoard], find_by: :slug
   def index
     @posts = Post.where(author_id: params[:user_id])
     @user_search = User.find_by(id: params[:user_id])
@@ -7,7 +7,7 @@ class PostsController < ApplicationController
 
   def show
     @user_search = User.find_by(id: params[:user_id])
-    authorize! :read, @post
+    # authorize! :read, @post
     @post = Post.find_by(id: params[:id])
   end
 
@@ -38,8 +38,6 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    Like.destroy_by(params[:post_id])
-    Comment.destroy_by(post_id: params[:id])
     @post = Post.find(params[:id])
     @post.destroy
     flash[:notice] = 'Post successfully deleted'

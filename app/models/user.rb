@@ -15,7 +15,7 @@ class User < ApplicationRecord
 
   ROLES = %i[admin default].freeze
 
-  def is?(role_name)
-    role == role_name.to_s
+  def is?(requested_role)
+    role == requested_role.to_s
   end
 end
