@@ -38,6 +38,8 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    Like.destroy_by(params[:post_id])
+    Comment.destroy_by(post_id: params[:id])
     @post = Post.find(params[:id])
     @post.destroy
     flash[:notice] = 'Post successfully deleted'
