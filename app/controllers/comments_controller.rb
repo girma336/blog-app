@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  load_and_authorize_resource
   def new
     @comment = Comment.new
     respond_to do |format|
@@ -23,5 +24,10 @@ class CommentsController < ApplicationController
         end
       end
     end
+  end
+
+  def destroy
+    @comment.destroy
+    redirect_to user_post_path(params[:user_id], params[:post_id]), notice: 'Comment was successfully deleted.'
   end
 end

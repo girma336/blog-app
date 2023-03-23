@@ -17,7 +17,7 @@
 
 
   <%= form.password_field :password_confirmation, autocomplete: "new-password", required: true %><br />
-
+  <%= form.select :role, [["user", "user"], ["admin", "admin"]]%>
 <%= form.button "Sign up" %>
 <% end %>
 <br />

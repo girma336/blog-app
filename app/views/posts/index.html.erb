@@ -19,6 +19,9 @@
   <div class="container border rounded" style="margin-top: 5px">
     <h4>Post #<%= index + 1 %></h4>
     <p><%= post.text %></p>
+    <% if can? :destroy, post %>
+             <%= button_to 'delete post', user_post_path(post.author, post), method: :delete, data: { confirm: 'Are you sure?' } %>
+  <% end %>
     <p><%= link_to "Detail", "#{user_posts_path}/#{post.id}", class:"btn btn-primary" %><p>
   </div>
   <div class="container border rounded" style="margin-top: 5px">
