@@ -1,11 +1,22 @@
 <%= render 'layouts/flash' %>
-<h3 style="margin: 10px;text-align:center;border-bottom: 2px solid black">Detale's about Post</h3>
+<div class="card">
+  <div class="card-header">
+    <h4>Details About Post</h4>
+  </div>
+</div>
+<% if @user_search.nil? %>
+ <p>Not user list found</p>
+<%else%>
 <div class="container border rounded" style="margin-top: 5px">
     <h4>Post #<%= @post.id %> by <%= @user_search.name %></h4>
     <p><%= @post.text %> </p>
     <p style="color: red">Comments: <%= @post.comments_counter %>, Likes: <%= @post.likes_counter %></p>
 </div>
+<%end%>
 <br>
+<% if @post.nil? %>
+ <p>Not user list found</p>
+<%else%>
 <div style="display: flex; justify-containt: start">
 <p style="margin-right: 10px"><%= link_to "Comment", "./#{@post.id}/comments/new" , class:"btn btn-primary"%></p>
  <p> <%= form_with url: "./#{@post.id}/likes", scope: :like do |form| %>
@@ -14,8 +25,10 @@
 </div>
 <div class="container border rounded" style="margin-top: 5px">
     <% if @post.comments_counter > 0 %>
-          <% @post.comments.each do |comment| %>
+          <% @post.comments.includes(:author).each do |comment| %>
             <%= render 'comments', comment: comment%>
             <% end %>
 <% end %>
   </div>
+  <%end%>
+<br>

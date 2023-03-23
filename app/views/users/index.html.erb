@@ -1,20 +1,14 @@
-<h3 style="margin: 10px;text-align:center;border-bottom: 2px solid black">All User List</h3>
-<div class="container" style="marign-top: 20px">
-  <% @users.each do |user| %>
-  <div class="card mb-3">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src=<%= user.photo %> class="img-fluid rounded-start" alt=<%= user.name %> >
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title"><%= user.name %></h5>
-        <p class="card-text float-left"><small class="text-muted float-left">Number of Post: <%= user.posts_counter %></small></p>
-        <p><%= link_to "Show More", "#{users_path}/#{user.id}", class:"btn btn-primary" %><p>
-      </div>
-    </div>
+<div class="card">
+  <div class="card-header">
+    <h4>List of User's</h4>
   </div>
 </div>
+<br>
+<div class="container" style="marign-top: 20px">
+  <% @users.each do |user| %>
+  <a href=<%= "/users/#{user.id}" %> class="text-decoration-none">
+   <%= render "user", user: user %>
+  </a>
 <% end %>
 
 </div>

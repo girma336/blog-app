@@ -1,10 +1,14 @@
-<h1 class="medium-heading">
-Adding a comment
-</h1>
+<div class="card">
+  <div class="card-header">
+    <h4>Adding a comment</h4>
+  </div>
+</div>
 
 <%= bootstrap_form_with(model: [@post, @comment], url: user_post_comments_path, local: true, layout: :horizontal) do |form| %>
     <br>
     <%= form.text_area :text %>
     <br>
-     <%= form.button "Add Comment" %>
+     <%= form.button "Add Comment", class:"btn btn-primary" %>
     <% end %>
+
+    <br>

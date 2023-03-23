@@ -5,5 +5,7 @@
   <div>
   <p>Comment: <%= post.comments_counter %>: Like :<%= post.likes_counter %></p>
   </div>
+  <%= link_to "#{@user_search.name}", "#{@user_search.id}/posts/#{post.id}", class:"btn btn-primary" %>
+  <br>
 </div>
 </div>

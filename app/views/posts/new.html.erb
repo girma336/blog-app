@@ -1,12 +1,15 @@
-<section class="add-post-section flex-center">
 
-<h4 style="text-align: center; margin: 5px">Adding New Post</h4>
-
+<div class="card">
+  <div class="card-header">
+    <h4>Adding New Post</h4>
+  </div>
+</div>
 <%= bootstrap_form_with(model: @post, url: user_posts_path, layout: :horizontal) do |form| %>
     <br>
     <%= form.text_field :title %>
     <br>
     <%= form.text_area :text %>
     <br>
-    <%= form.button "Add Post" %>
+    <%= form.button "Add Post", class:"btn btn-primary" %>
 <% end %>
+<br>

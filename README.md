@@ -148,8 +148,17 @@ To run the project, execute the following command:
 - GitHub: [@girma](https://github.com/girma336/)
 - LinkedIn: [Girma Tarekegn](https://linkedin.com/in/girma-tarekegn/)
 
+👤 **Lukman Abdulkarim**
+
+- GitHub: [@Lukman](https://github.com/lukman155)
+- Twitter: [@Luk, A man](https://twitter.com/lukmanabdulka18)
+- LinkedIn: [Lukman Abdulkarim](https://www.linkedin.com/in/lukmanbaba/)
+
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 <!-- FUTURE FEATURES -->
+
+
 
 ## 🔭 Future Features <a name="future-features"></a>
 
