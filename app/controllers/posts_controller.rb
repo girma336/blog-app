@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   load_and_authorize_resource only: [:dashBoard], find_by: :slug
   def index
-    @posts = Post.where(author_id: params[:user_id])
+    @posts = Post.all.where(author_id: params[:user_id])
     @user_search = User.find_by(id: params[:user_id])
   end
 

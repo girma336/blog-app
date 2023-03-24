@@ -9,9 +9,17 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   resources :users, only: [:index, :show] do 
-    resources :posts, only: [:index, :show, :create, :new, :destroy] do
-      resources :comments, only: [:new, :create, :destroy]
+    resources :posts, only: [:show, :create, :new, :destroy] do
+      resources :comments, only: [:new, :destroy]
       resources :likes, only: [:create]
+    end
+  end
+
+  namespace :api, defaults: { format: 'json' } do
+    resources :users do
+      resources :posts, only: [:index] do
+        resources :comments, only: [:index, :create]
+      end
     end
   end
 
