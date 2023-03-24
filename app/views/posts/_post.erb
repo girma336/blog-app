@@ -5,7 +5,10 @@
   <div>
   <p>Comment: <%= post.comments_counter %>: Like :<%= post.likes_counter %></p>
   </div>
-  <%= link_to "#{@user_search.name}", "#{@user_search.id}/posts/#{post.id}", class:"btn btn-primary" %>
+ <div style="display: flex; "> <% if can? :destroy, post %>
+             <%= button_to 'delete post', user_post_path(post.author_id, post), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %>
+  <% end %>
+  <p style="margin-left: 20px" ><%= link_to "Show Detail", "#{@user_search.id}/posts/#{post.id}", class:"btn btn-primary" %> </p></div>
   <br>
 </div>
 </div>

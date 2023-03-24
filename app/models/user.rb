@@ -12,4 +12,10 @@ class User < ApplicationRecord
   def three_most_recent_posts
     Post.includes(:author).where(author_id: id).order(created_at: :desc).limit(3)
   end
+
+  ROLES = %i[admin default].freeze
+
+  def is?(requested_role)
+    role == requested_role.to_s
+  end
 end

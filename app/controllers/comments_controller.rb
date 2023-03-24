@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  load_and_authorize_resource only: [:dashBoard], find_by: :slug
   def new
     @comment = Comment.new
     respond_to do |format|
@@ -23,5 +24,12 @@ class CommentsController < ApplicationController
         end
       end
     end
+  end
+
+  def destroy
+    @comment = Comment.find(params[:id])
+    @comment.destroy
+    flash[:notice] = 'Post successfully deleted'
+    redirect_to user_posts_path(params[:user_id])
   end
 end
