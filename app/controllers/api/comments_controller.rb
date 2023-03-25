@@ -1,21 +1,14 @@
 class Api::CommentsController < ApplicationController
   def index
-    @comments = Post.find(params[:post_id]).comments
-    redirect_to do |format|
-      format.json { render json: @comments }
-    end
+    @comments = Comment.all.where(author_id: params[:user_id], post_id: params[:post_id])
   end
 
   def create
     @comment = Comment.new(comment_params)
-    respond_to do |format|
-      format.json do
-        if @comment.save
-          render json: @comment, status: :created, location: @comment
-        else
-          render json: @comment.errors, status: :unprocessable_entity
-        end
-      end
+    if @comment.save
+      render json: @comment, status: :created, location: @comment
+    else
+      render json: @comment.errors, status: :unprocessable_entity
     end
   end
 
